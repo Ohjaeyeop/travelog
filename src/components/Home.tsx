@@ -1,6 +1,5 @@
 import React, { useEffect } from "react";
 import styled from "styled-components";
-import flagImage from "../apis/flagImage";
 import countryCodes from "../data/countryCodes";
 
 const MainContainer = styled.div`
@@ -16,15 +15,12 @@ const Header = styled.header`
 
 const Title = styled.h1`
   float: left;
-  color: white;
+  color: lightgray;
   font-weight: bold;
   font-size: 3em;
 `;
 
 const Home = () => {
-  useEffect(() => {
-    flagImage(countryCodes[0]);
-  }, []);
   return (
     <MainContainer>
       <Header>
