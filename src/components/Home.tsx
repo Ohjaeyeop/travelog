@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import { ref, listAll } from "firebase/storage";
 import { storage } from "../firebase";
+import Card from "./Card";
 
 const MainContainer = styled.div`
   background-color: #212021;
@@ -30,11 +31,14 @@ const Home = () => {
     });
   }, []);
 
+  const cards = travelList.map((title) => <Card title={title} key={title} />);
+
   return (
     <MainContainer>
       <Header>
         <Title>Travelog</Title>
       </Header>
+      {cards}
     </MainContainer>
   );
 };
