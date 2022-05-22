@@ -7,7 +7,7 @@ const MainContainer = styled.div`
   background-color: #212021;
   height: 100vh;
   position: relative;
-  padding: 30px;
+  padding: 35px;
 `;
 
 const Header = styled.header`
@@ -19,7 +19,7 @@ const Title = styled.h1`
   float: left;
   color: lightgray;
   font-weight: bold;
-  font-size: 3em;
+  font-size: 2em;
 `;
 
 const CardList = styled.div`

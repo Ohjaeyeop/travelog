@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import styled from "styled-components";
 import { getStorageData } from "../apis/getStorageData";
+import { travelPeriod } from "../data/travelPeriod";
 
 const Wrapper = styled.div`
   background-color: white;
@@ -10,22 +11,30 @@ const Wrapper = styled.div`
 `;
 
 const Description = styled.div`
-  margin: 20px 0 10px 0;
+  margin-top: 20px;
   text-align: left;
 `;
 
+const Text = styled.p`
+  margin-bottom: 4px;
+`;
+
 const Card = ({ title }: { title: string }) => {
+  const getPaths = async (title: string) => {
+    const result = await getStorageData(title);
+    return result.prefixes.map((ref) => `${title}/${ref.name}`);
+  };
+
   useEffect(() => {
-    getStorageData(title).then((res) => {
-      res.prefixes.forEach((a) => console.log(a.name));
-    });
+    const paths = getPaths(title);
   }, [title]);
 
   return (
     <Wrapper>
       <img src="https://via.placeholder.com/300.jpg" />
       <Description>
-        <p>{title}</p>
+        <Text>{title}</Text>
+        <Text>{travelPeriod[title]}</Text>
       </Description>
     </Wrapper>
   );
