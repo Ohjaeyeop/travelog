@@ -1,7 +1,5 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
-import { ref, listAll } from "firebase/storage";
-import { storage } from "../firebase";
 import Card from "./Card";
 import { getStorageData } from "../apis/getStorageData";
 
@@ -14,6 +12,7 @@ const MainContainer = styled.div`
 
 const Header = styled.header`
   overflow: hidden;
+  margin-bottom: 50px;
 `;
 
 const Title = styled.h1`
@@ -21,6 +20,12 @@ const Title = styled.h1`
   color: lightgray;
   font-weight: bold;
   font-size: 3em;
+`;
+
+const CardList = styled.div`
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
 `;
 
 const Home = () => {
@@ -37,9 +42,11 @@ const Home = () => {
       <Header>
         <Title>Travelog</Title>
       </Header>
-      {travelList.map((title) => (
-        <Card title={title} key={title} />
-      ))}
+      <CardList>
+        {travelList.map((title) => (
+          <Card title={title} key={title} />
+        ))}
+      </CardList>
     </MainContainer>
   );
 };

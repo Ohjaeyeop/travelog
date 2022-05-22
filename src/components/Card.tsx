@@ -1,15 +1,17 @@
 import React, { useEffect } from "react";
 import styled from "styled-components";
-import { listAll, ref } from "firebase/storage";
-import { storage } from "../firebase";
 import { getStorageData } from "../apis/getStorageData";
 
 const Wrapper = styled.div`
   background-color: white;
+  padding: 10px;
+  border-radius: 5px;
+  margin-bottom: 20px;
 `;
 
-const Content = styled.div`
-  background-color: black;
+const Description = styled.div`
+  margin: 20px 0 10px 0;
+  text-align: left;
 `;
 
 const Card = ({ title }: { title: string }) => {
@@ -21,8 +23,10 @@ const Card = ({ title }: { title: string }) => {
 
   return (
     <Wrapper>
-      <Content></Content>
-      <p>{title}</p>
+      <img src="https://via.placeholder.com/300.jpg" />
+      <Description>
+        <p>{title}</p>
+      </Description>
     </Wrapper>
   );
 };
