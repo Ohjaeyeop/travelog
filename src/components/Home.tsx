@@ -3,6 +3,7 @@ import styled from "styled-components";
 import { ref, listAll } from "firebase/storage";
 import { storage } from "../firebase";
 import Card from "./Card";
+import { getStorageData } from "../apis/getStorageData";
 
 const MainContainer = styled.div`
   background-color: #212021;
@@ -26,19 +27,19 @@ const Home = () => {
   const [travelList, setTravelList] = useState<string[]>([]);
 
   useEffect(() => {
-    listAll(ref(storage, "gs://travelog-6afc5.appspot.com")).then((res) => {
+    getStorageData().then((res) => {
       setTravelList(res.prefixes.map((ref) => ref.name));
     });
   }, []);
-
-  const cards = travelList.map((title) => <Card title={title} key={title} />);
 
   return (
     <MainContainer>
       <Header>
         <Title>Travelog</Title>
       </Header>
-      {cards}
+      {travelList.map((title) => (
+        <Card title={title} key={title} />
+      ))}
     </MainContainer>
   );
 };
