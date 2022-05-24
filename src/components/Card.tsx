@@ -30,6 +30,7 @@ const Image = styled.img`
 const Description = styled.div`
   margin-top: 20px;
   text-align: left;
+  font-family: "Samlip";
 `;
 
 const Text = styled.p`

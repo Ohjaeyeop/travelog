@@ -19,7 +19,8 @@ const Title = styled.h1`
   float: left;
   color: lightgray;
   font-weight: bold;
-  font-size: 2em;
+  font-size: 1.8em;
+  font-family: "Samlip";
 `;
 
 const CardList = styled.div`
