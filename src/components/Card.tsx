@@ -7,12 +7,24 @@ import { storage } from "../firebase";
 
 const Wrapper = styled.div`
   background-color: white;
-  padding: 10px;
+  padding: 12px;
   border-radius: 5px;
   margin-bottom: 20px;
   &:hover {
     cursor: pointer;
   }
+`;
+
+const ImageContainer = styled.div`
+  width: 300px;
+  height: 300px;
+`;
+
+const Image = styled.img`
+  width: 100%;
+  height: 100%;
+  border-radius: 5px;
+  object-fit: cover;
 `;
 
 const Description = styled.div`
@@ -58,7 +70,9 @@ const Card = ({ title }: { title: string }) => {
 
   return (
     <Wrapper onClick={handleOnClick}>
-      <img src={imageUrl} width={300} height={300} onError={handleImgError} />
+      <ImageContainer>
+        <Image src={imageUrl} onError={handleImgError} />
+      </ImageContainer>
       <Description>
         <Text>{title}</Text>
         <Text>{travelPeriod[title]}</Text>
